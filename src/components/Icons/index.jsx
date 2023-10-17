@@ -9,4 +9,10 @@ import Home from "./Home";
 import User from "./User";
 import Map from "./Map";
 import Web from "./Web";
-export {Bell, Logo, Slash, Plus, ArrowDown, Home, User, Map, Web};
+
+import Overview from "./Overview";
+import Repository from "./Repository";
+import Project from "./Project";
+import Package from "./Package";
+import Star from "./Star";
+export {Bell, Logo, Slash, Plus, ArrowDown, Home, User, Map, Web, Overview, Repository, Project, Package, Star};

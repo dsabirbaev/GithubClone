@@ -1,4 +1,4 @@
-
+import Link from "next/link";
 import { Logo, Slash, ArrowDown, Bell, Plus } from "../Icons";
 
 
@@ -8,7 +8,7 @@ const index = () => {
             <div className="px-5">
                 <nav className="h-[68px] flex items-center justify-between">
                     <div className="flex items-center gap-x-4">
-                        <a href="#"><Logo/></a>
+                        <Link href="/"><Logo/></Link>
                         <div className="flex rounded-[5px] bg-[#0D1117] border border-[#282C31] p-[1px] pl-[12px] h-[28px]">
                             <input className="bg-transparent outline-none text-white placeholder:text-[13px] placeholder:tracking-[-0.26px] placeholder:font-semibold" type="text" placeholder="Search or jump to..."/>
                             <Slash/>
