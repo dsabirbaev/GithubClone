@@ -9,7 +9,7 @@ import { Home, User, Map, Web } from "../Icons";
 import img1 from "../../assets/images/quickdraw.png";
 import img2 from "../../assets/images/pullshark.png";
 
-const index = () => {
+const Index = () => {
 
     const [user, setUser] = useState(null);
 
@@ -88,4 +88,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default Index;

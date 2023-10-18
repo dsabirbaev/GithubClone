@@ -6,7 +6,7 @@ import UserItem from "../../components/UI/UserList/UserItem";
 
 
 
-const page = () => {
+const Page = () => {
     const [followers, setFollowers] = useState([]);
     const [step, setStep] = useState(1);
     const [pbtn, psetBtn] = useState(false);
@@ -59,4 +59,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;
