@@ -5,7 +5,7 @@ import img1 from "../../assets/images/quickdraw.png";
 import img2 from "../../assets/images/pullshark.png";
 const index = () => {
     return (
-        <aside className="pt-[42px] w-[296px]">
+        <aside className="w-[296px]">
             <div className="flex flex-col gap-y-[18px]">
 
                 <div className="w-[296px] h-[296px] bg-slate-500 rounded-full relative">
@@ -31,11 +31,12 @@ const index = () => {
                 <div className="flex items-center text-[#C2CAD1] text-[14px] font-semibold">
                     <Web /> <span className="ml-1">davran.com</span>
                 </div>
-                <span className="w-full h-[1px] bg-[#C2CAD1]"></span>
+                <span className="w-full h-[1px] bg-[#282C31]"></span>
 
                 <div className="flex flex-col">
                     <p className="text-[#C2CAD1] text-[18px] font-semibold mb-[8px]">Achievements</p>
                     <div className="flex">
+                  
                         <Image
                             src={img1}
                             alt="Picture of the author"
@@ -49,6 +50,13 @@ const index = () => {
                      
                     </div>
                 </div>
+
+                <div className="flex items-center gap-x-1">
+                    <span className="text-[#26A641] tracking-[0.39px] text-[13px] rounded-[50px] border border-[#26A641] px-[8px] py-[1px]">Beta</span>
+                    <span className="text-[#58A6FF] tracking-[0.26px] text-[13px] font-semibold">Send feedback</span>
+                </div>
+
+                <p className="text-[#6E7681] ">Block or Report</p>
             </div>
         </aside>
     );

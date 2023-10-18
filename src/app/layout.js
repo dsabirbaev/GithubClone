@@ -3,7 +3,9 @@ import './globals.css'
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Aside from "../components/Aside";
-import Main from "../components/Main";
+
+import Category from "../components/Category";
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -17,9 +19,14 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         
         <Header/>
-        <main className='flex gap-x-[26px] px-5'>
+        <main>
+          <Category/>
+         <div className='flex gap-x-[26px]  pt-[42px] container mx-auto px-5'> 
           <Aside/>
-          <Main children={children}/>
+          <section className='flex flex-col  w-full border border-[#343942] rounded-[6px] px-[25px] py-[28px]'> 
+              {children}
+          </section>
+         </div>
           
         </main>
         

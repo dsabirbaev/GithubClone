@@ -1,14 +1,14 @@
-
+import Link from "next/link";
 import { Logo } from "../Icons";
 
 
 const index = () => {
     return (
         <footer>
-            <div className="px-5">
+            <div className="container mx-auto px-5">
                 <div className="flex items-center gap-x-[70px] h-[115px]">
                     <div className="flex items-center gap-x-[6px] tracking-[-0.24px]">
-                        <Logo/> <span className="text-[#8B949E] font-semibold"> © 2023 GitHub, Inc.</span>
+                        <Link href="/"><Logo/></Link> <span className="text-[#8B949E] font-semibold"> © 2023 GitHub, Inc.</span>
                     </div>
 
                     <ul className="flex items-center gap-x-[42px] text-[#58A6FF] text-[12px] font-semibold translate-x-[-0.24px]">
