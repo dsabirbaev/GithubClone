@@ -33,13 +33,16 @@ const page = () => {
         setStep(step-1);
         psetBtn(true);
     }
+
+
+
     return (
-        <div className="">
+        <div>
             <ul>
                 
                     {
                         followers?.length ? followers?.map((user) => {
-                            return <li>
+                            return <li key={user?.id}>
                                  <UserItem user={user}/>
                             </li>
                         }): <h1>Not Found!</h1>
@@ -48,7 +51,7 @@ const page = () => {
                
             </ul>
 
-            <div className="flex justify-center gap-x-4">
+            <div className="flex justify-center gap-x-4 mt-5 text-white">
                 <button disabled={pbtn} className="border border-gray-700 p-2 px-4" onClick={() => prev()}>prev</button>
                 <button disabled={nbtn} className="border border-gray-700 p-2 px-4" onClick={() => next()}>next</button>
             </div>

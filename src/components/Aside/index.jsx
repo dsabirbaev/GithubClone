@@ -19,6 +19,7 @@ const index = () => {
            
         })
     }, [])
+
     return (
         <aside className="min-w-[296px]">
             <div className="flex flex-col gap-y-[18px]">

@@ -3,7 +3,7 @@
 
 
 
-const UserItem = ({user:{avatar_url, login, html_url, name}}) => {
+const UserItem = ({user:{avatar_url, login, html_url}}) => {
     return (
         <div className="text-white">
             <div className="p-4 border-b border-gray-300 m-2 flex justify-between items-center">
