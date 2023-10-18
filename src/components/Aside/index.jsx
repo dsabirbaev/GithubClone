@@ -1,31 +1,56 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 
+import useUsersApi from "../../service/Users";
 import { Home, User, Map, Web } from "../Icons";
 import img1 from "../../assets/images/quickdraw.png";
 import img2 from "../../assets/images/pullshark.png";
+
 const index = () => {
+
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        useUsersApi.getProfile().then((res) => {
+            setUser(res.data)
+           
+        })
+    }, [])
     return (
-        <aside className="w-[296px]">
+        <aside className="min-w-[296px]">
             <div className="flex flex-col gap-y-[18px]">
 
-                <div className="w-[296px] h-[296px] bg-slate-500 rounded-full relative">
+                <div className="relative">
+                    <img
+                        src={user?.avatar_url}
+                        alt="Avatar"
+                        loading="lazy"
+                        className="w-[296px] h-[296px] rounded-full "
+                    />
                     <span className="absolute bottom-[35px] right-[0px] w-[38px] bg-black h-[38px] rounded-full flex items-center justify-center border border-gray-400"><Home /></span>
                 </div>
+              
 
                 <div>
-                    <h2 className="text-[#C2CAD1] text-[24px] font-semibold">Sabirbayev Davranbek</h2>
-                    <p className="text-[20px] tracking-[-0.4px] text-[#6E7681]">Frontend developer</p>
+                    <h2 className="text-[#C2CAD1] text-[24px] font-semibold">{user?.name}</h2>
+                    <p className="text-[20px] tracking-[-0.4px] text-[#6E7681]">{user?.login}</p>
                 </div>
 
                 <button className="text-[#C2CAD1] rounded-[5px] bg-[#21262D] text-[14px] font-bold h-[32px]">Edit profile</button>
 
-                <p className="text-[#C2CAD1] text-[16px] ">I'm a frontend developer and a year experience</p>
+                <p className="text-[#C2CAD1] text-[16px] ">{user?.bio}</p>
 
                 <div className="flex items-center text-[#C2CAD1] font-semibold text-[14px]">
-                    <User /> <span className="mx-2">100 000 followers</span> <span>1 following</span>
+                    <User /> 
+                    <Link href="/followers"> <span className="mx-2 hover:text-blue-400">{user?.followers} followers</span></Link>
+                    <Link href="/followings"> <span className="hover:text-blue-400">{user?.following} following</span></Link>   
+                    
                 </div>
                 <div className="flex items-center text-[#C2CAD1] text-[14px] font-semibold">
-                    <Map /> <span className="ml-1">Tashkent, Uzbekistan </span>
+                    <Map /> <span className="ml-1">{user?.location}</span>
                 </div>
 
                 <div className="flex items-center text-[#C2CAD1] text-[14px] font-semibold">
@@ -36,18 +61,18 @@ const index = () => {
                 <div className="flex flex-col">
                     <p className="text-[#C2CAD1] text-[18px] font-semibold mb-[8px]">Achievements</p>
                     <div className="flex">
-                  
+
                         <Image
                             src={img1}
                             alt="Picture of the author"
                             loading="lazy"
                         />
-                         <Image
+                        <Image
                             src={img2}
                             alt="Picture of the author"
                             loading="lazy"
                         />
-                     
+
                     </div>
                 </div>
 

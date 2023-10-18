@@ -30,6 +30,7 @@ const index = () => {
                             <ArrowDown/>
                         </div>
                         <div className="flex items-center gap-x-1">
+                            
                             <span className="w-6 h-6 rounded-full bg-gray-400"></span>
                             <ArrowDown/>
                         </div>
