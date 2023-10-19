@@ -5,7 +5,9 @@
 const page = () => {
     return (
         <div>
-            <h2 className="text-white">Overview</h2>
+            <div className="flex items-center justify-center">
+                
+            </div>
         </div>
     );
 };

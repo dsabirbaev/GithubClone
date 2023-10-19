@@ -15,7 +15,7 @@ const Page = () => {
         if(step <= 1){
             psetBtn(true);
         }
-        useUsersApi.paginateFollowings().then((res) => {
+        useUsersApi.paginateFollowings(step).then((res) => {
             if(res.status == 200){
                 setFollowings(res.data)
                 nsetBtn(false);

@@ -15,4 +15,8 @@ import Repository from "./Repository";
 import Project from "./Project";
 import Package from "./Package";
 import Star from "./Star";
-export {Bell, Logo, Slash, Plus, ArrowDown, Home, User, Map, Web, Overview, Repository, Project, Package, Star};
+
+import Facebook from "./Facebook";
+import Twitter from "./Twitter";
+import Linkedin from "./Linkedin";
+export {Bell, Logo, Slash, Plus, ArrowDown, Home, User, Map, Web, Overview, Repository, Project, Package, Star, Facebook, Twitter, Linkedin};

@@ -11,11 +11,12 @@ const Page = () => {
     const [step, setStep] = useState(1);
     const [pbtn, psetBtn] = useState(false);
     const [nbtn, nsetBtn] = useState(false);
+
     useEffect(() => {
         if(step <= 1){
             psetBtn(true);
         }
-        useUsersApi.paginateFollowers().then((res) => {
+        useUsersApi.paginateFollowers(step).then((res) => {
             if(res.status == 200){
                 setFollowers(res.data)
                 nsetBtn(false);
