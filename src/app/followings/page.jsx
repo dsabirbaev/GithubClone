@@ -11,9 +11,13 @@ const Page = () => {
     const [step, setStep] = useState(1);
     const [pbtn, psetBtn] = useState(false);
     const [nbtn, nsetBtn] = useState(false);
+
+    
     useEffect(() => {
-        if(step <= 1){
+        if (step <= 1) {
             psetBtn(true);
+        } else {
+            psetBtn(false);
         }
         useUsersApi.paginateFollowings(step).then((res) => {
             if(res.status == 200){
@@ -25,16 +29,18 @@ const Page = () => {
     }, [step])
 
     const next = () => {
-        setStep(step+1);
-        nsetBtn(true);
+        if (repository.length < 30) {
+            nsetBtn(false);
+        } else {
+            setStep(step + 1);
+            psetBtn(false);
+        }
     }
 
     const prev = () => {
-        setStep(step-1);
-        psetBtn(true);
+        setStep(step - 1);
+        nsetBtn(false);
     }
-
-
 
     return (
         <div>
@@ -52,8 +58,15 @@ const Page = () => {
             </ul>
 
             <div className="flex justify-center gap-x-4 mt-5 text-white">
-                <button disabled={pbtn} className="border border-gray-700 p-2 px-4" onClick={() => prev()}>prev</button>
-                <button disabled={nbtn} className="border border-gray-700 p-2 px-4" onClick={() => next()}>next</button>
+                {
+                    followings.length < 30 ? null :
+                        <>
+                            <button disabled={pbtn} className={`${pbtn ? "bg-black cursor-not-allowed" : "bg-transparent"} border border-gray-700 p-2 px-4`} onClick={() => prev()}>prev</button>
+                            <button disabled={nbtn} className={`${followings.length < 30 ? "bg-black cursor-not-allowed" : "bg-transparent"} border border-gray-700 p-2 px-4`} onClick={() => next()}>next</button>
+                        </>
+
+                }
+
             </div>
         </div>
     );
