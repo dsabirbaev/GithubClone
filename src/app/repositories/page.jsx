@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import useUsersApi from "@/service/Users";
-import UserItem from "../../components/UI/UserList/UserItem";
+import RepoList from "@/components/UI/RepoList/RepoList";
 
 
 
@@ -13,13 +13,13 @@ const Page = () => {
     const [nbtn, nsetBtn] = useState(false);
 
     useEffect(() => {
-        if(step <= 1){
+        if (step <= 1) {
             psetBtn(true);
-        }else{
+        } else {
             psetBtn(false);
         }
         useUsersApi.paginateRepository(step).then((res) => {
-            if(res.status == 200){
+            if (res.status == 200) {
                 setRepository(res.data)
                 nsetBtn(false);
             }
@@ -29,31 +29,30 @@ const Page = () => {
     const next = () => {
         if (repository.length < 30) {
             nsetBtn(false);
-        }else{
-            setStep(step+1);
+        } else {
+            setStep(step + 1);
             psetBtn(false);
         }
     }
 
     const prev = () => {
-        setStep(step-1);
+        setStep(step - 1);
         nsetBtn(false);
     }
 
-
     return (
         <div>
-            <ul>
-                
-                    {
-                        repository?.length ? repository?.map((repo) => {
-                            return <li key={repo?.id} className="text-white">
-                                 {repo?.name}
-                            </li>
-                        }): <h1 className="text-white">Not Found!</h1>
-                    }
-                  
-               
+            <ul className="flex flex-col gap-y-2">
+
+                {
+                    repository?.length ? repository?.map((repo) => {
+                        return <li key={repo?.id}>
+                            <RepoList repo={repo} status={repo?.private}/>
+                        </li>
+                    }) : <h1 className="text-white">Not Found!</h1>
+                }
+
+
             </ul>
 
             <div className="flex justify-center gap-x-4 mt-5 text-white">
